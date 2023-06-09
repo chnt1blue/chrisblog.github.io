@@ -1,24 +1,36 @@
-import React from 'react';
-import './App.css';
-
-function App() {
+import React from "react";
+import { Redirect, Route, Router, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import Article from "./pages/Article";
+import { createHashHistory } from "history";
+import Gpt from "./pages/Gpt";
+const history = createHashHistory();
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          {new Date().getTime()}
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router history={history}>
+      <Switch>
+        <Route path="/" exact render={() => <Redirect to="/Home" />} />
+        <Route
+          path="/Home"
+          render={() => {
+            return <Home />;
+          }}
+        />
+        <Route
+          path="/Article"
+          render={() => {
+            return <Article />;
+          }}
+        />
+        <Route
+          path="/Gpt"
+          render={() => {
+            return <Gpt />;
+          }}
+        />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
