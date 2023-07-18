@@ -51,12 +51,12 @@ module.exports = {
   ],
   // 出口文件
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "docs"),
     filename: "bundle.js",
   },
   devServer: {
     static: {
-      directory: path.resolve(__dirname, "dist"), // 告诉服务器从指定目录中提供静态文件，也即打包后的文件
+      directory: path.resolve(__dirname, "docs"), // 告诉服务器从指定目录中提供静态文件，也即打包后的文件
     },
     port: 8080, // 设置端口
     open: true, // 自动打开浏览器
