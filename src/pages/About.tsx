@@ -1,9 +1,4 @@
-import React, { useEffect, useState } from "react";
-import rehypeRaw from "rehype-raw";
-import gfm from "remark-gfm";
-import ReactMarkdown from "react-markdown";
-import { useRequestAnswer } from "../components/chatgpt/requestAnswer";
-import { Link } from "react-router-dom";
+import React from "react";
 
 interface Post {
   title: string;
@@ -21,20 +16,9 @@ const posts: Post[] = [
   },
 ];
 
-const Home: React.FunctionComponent = () => {
+const About: React.FunctionComponent = () => {
   return (
     <div>
-      <nav>
-        <ul>
-          <li>Home1</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>
-            <Link to="/gpt">gpt</Link>
-          </li>
-        </ul>
-      </nav>
-
       <div className="content">
         <div className="posts">{/* ... */}</div>
 
@@ -53,4 +37,4 @@ const Home: React.FunctionComponent = () => {
   );
 };
 
-export default Home;
+export default About;

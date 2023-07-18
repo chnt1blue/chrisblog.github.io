@@ -1,35 +1,46 @@
 import React from "react";
 import { Redirect, Route, Router, Switch } from "react-router-dom";
-import Home from "./pages/Home";
 import Article from "./pages/Article";
 import { createHashHistory } from "history";
-import Gpt from "./pages/Gpt";
+import { NavigationBar } from "./components";
+import About from "./pages/About";
+import { ChatGpt, Home } from "./pages";
+
 const history = createHashHistory();
 const App: React.FC = () => {
   return (
-    <Router history={history}>
-      <Switch>
-        <Route path="/" exact render={() => <Redirect to="/Home" />} />
-        <Route
-          path="/Home"
-          render={() => {
-            return <Home />;
-          }}
-        />
-        <Route
-          path="/Article"
-          render={() => {
-            return <Article />;
-          }}
-        />
-        <Route
-          path="/Gpt"
-          render={() => {
-            return <Gpt />;
-          }}
-        />
-      </Switch>
-    </Router>
+    <>
+      <NavigationBar />
+      <Router history={history}>
+        <Switch>
+          <Route path="/" exact render={() => <Redirect to="/Home" />} />
+          <Route
+            path="/Home"
+            render={() => {
+              return <Home />;
+            }}
+          />
+          <Route
+            path="/Article"
+            render={() => {
+              return <Article />;
+            }}
+          />
+          <Route
+            path="/Gpt"
+            render={() => {
+              return <ChatGpt />;
+            }}
+          />
+          <Route
+            path="/about"
+            render={() => {
+              return <About />;
+            }}
+          />
+        </Switch>
+      </Router>
+    </>
   );
 };
 

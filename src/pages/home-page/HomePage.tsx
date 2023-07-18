@@ -16,9 +16,9 @@ const posts: Post[] = [
   },
 ];
 
-const Article: React.FunctionComponent = () => {
+const HomePage: React.FunctionComponent = () => {
   return (
-    <div>
+    <div className="chris-page-home">
       <div className="content">
         <div className="posts">{/* ... */}</div>
 
@@ -37,4 +37,4 @@ const Article: React.FunctionComponent = () => {
   );
 };
 
-export default Article;
+export default HomePage;

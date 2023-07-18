@@ -2,20 +2,20 @@ import axios from "axios";
 import _ from "lodash";
 import { useState } from "react";
 
-export const useRequestAnswer = (): [
+const useRequestAnswer = (
+  system: string
+): [
   (question: string, key: string) => Promise<{ returnValue: string }>,
   {
     role: string;
     content: string;
   }[]
 ] => {
-  const question = "Good morning, your highness.";
   const [messages, setMessages] = useState<{ role: string; content: string }[]>(
     [
       {
         role: "system",
-        content:
-          "You will act a princess from the Middle Age called Mirana .The user is your handmaid, the user will serve you, so you should act as a princess",
+        content: system,
       },
     ]
   );
@@ -41,7 +41,7 @@ export const useRequestAnswer = (): [
     });
     console.log(data);
     const returnValue = _.join(
-      _.map(data["choices"], (v, i) => {
+      _.map(data["choices"], (v, _i) => {
         return _.get(v, ["message", "content"]);
       }),
       ","
@@ -60,3 +60,5 @@ export const useRequestAnswer = (): [
 
   return [ask, messages];
 };
+
+export default useRequestAnswer;

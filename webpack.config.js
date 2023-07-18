@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin"); // 导入html-webpack-
 module.exports = {
   // 入口文件
   entry: "./index.tsx",
+  watch: true,
   module: {
     rules: [
       {
